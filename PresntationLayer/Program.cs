@@ -1,3 +1,8 @@
+using BussinessLogicLayer.StudentServices;
+using DataAccessLayer.DbContexts;
+using DataAccessLayer.Repo;
+using Microsoft.EntityFrameworkCore;
+
 namespace PresntationLayer
 {
 	public class Program
@@ -8,8 +13,14 @@ namespace PresntationLayer
 
 			// Add services to the container.
 			builder.Services.AddControllersWithViews();
+            builder.Services.AddDbContext<ApplicationDbContext>(options =>
+            {
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+            });
+			builder.Services.AddScoped<IStudentRepo,StudentRepo>();
+			builder.Services.AddScoped<IStudentServices, StudentServices>();
 
-			var app = builder.Build();
+            var app = builder.Build();
 
 			// Configure the HTTP request pipeline.
 			if (!app.Environment.IsDevelopment())
@@ -28,7 +39,7 @@ namespace PresntationLayer
 
 			app.MapControllerRoute(
 				name: "default",
-				pattern: "{controller=Home}/{action=Index}/{id?}");
+				pattern: "{controller=Student}/{action=Index}/{id?}");
 
 			app.Run();
 		}
