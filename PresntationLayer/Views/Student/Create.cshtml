@@ -1,0 +1,53 @@
+﻿@model StudentDto
+@{
+    ViewData["Title"] = "Create";
+}
+<h1>Create</h1>
+
+<div class="row justify-content-center align-content-center mt-3">
+    <h1 class="col-8 my-4">Create Student</h1>
+    <form method="post" asp-controller="Student" asp-action="Create" class=" row col-8" enctype="multipart/form-data">
+        @*See Error On Client Side*@
+        <div asp-validation-summary="ModelOnly"></div>
+
+
+        <div class="form-group mb-3 col-6">
+            <label class="form-label" asp-for="Name"></label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+
+        <div class="form-group mb-3 col-6">
+            <label class="form-label" asp-for="Email"></label>
+            <input asp-for="Email" class="form-control" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+
+        <div class="form-group mb-3 col-6">
+            <label class="form-label" asp-for="Age"></label>
+            <input asp-for="Age" class="form-control" />
+            <span asp-validation-for="Age" class="text-danger"></span>
+        </div>
+        <div class="form-group mb-3 col-6">
+            <label class="form-label" asp-for="Course"></label>
+            <input asp-for="Course" class="form-control" />
+            <span asp-validation-for="Course" class="text-danger"></span>
+        </div>
+
+
+
+        <div class="mt-4 m-auto">
+            <input class="btn btn-primary" type="submit" value="Save" />
+            <a asp-controller="Student" asp-action="Index" class="btn btn-outline-dark">Back to list</a>
+        </div>
+    </form>
+</div>
+@*Handle Error In Client Side Befor Send *@
+@section MYScripts {
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
+
+
+

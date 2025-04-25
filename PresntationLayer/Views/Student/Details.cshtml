@@ -1,0 +1,51 @@
+﻿@model StudentDetails
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1> Studet :@Model.Name Details</h1>
+
+<div class="tab-content" id="myTabContent">
+    <!-- General Tab Content -->
+    <div class="tab-pane fade show active p-4 border" id="general" role="tabpanel" aria-labelledby="general-tab">
+
+        <div class="row">
+            <div class="form-group mb-3 col-6">
+                <label class="form-label" asp-for="Id"></label>
+                <input asp-for="Id" class="form-control" readonly />
+            </div>
+            <div class="form-group mb-3 col-6">
+                <label class="form-label" asp-for="Name"></label>
+                <input asp-for="Name" class="form-control" readonly />
+            </div>
+            <div class="form-group mb-3 col-6">
+                <label class="form-label" asp-for="Email"></label>
+                <input asp-for="Email" class="form-control" readonly />
+            </div>
+            <div class="form-group mb-3 col-6">
+                <label class="form-label" asp-for="Age"></label>
+                <input asp-for="Age" class="form-control" readonly />
+            </div>
+            <div class="form-group mb-3 col-6">
+                <label class="form-label" asp-for="Course"></label>
+                <input asp-for="Course" class="form-control" readonly />
+            </div>
+            <div class="form-group mb-3 col-6">
+                <label class="form-label" asp-for="Age"></label>
+                <input asp-for="Age" class="form-control" readonly />
+            </div>
+           
+        </div>
+    </div>
+
+   
+    <div class="mt-4">
+        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-success">Edit</a>
+        <a asp-action="Index" class="btn btn-outline-dark">Back To list</a>
+    </div>
+</div>
+
+
+
+
+
